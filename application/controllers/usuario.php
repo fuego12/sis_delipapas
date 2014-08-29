@@ -13,6 +13,8 @@ class usuario extends CI_Controller {
 
     public function index() {
         
+        
+        
     }
 
     public function usuario() {
