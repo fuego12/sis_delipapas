@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-$route['login'] = "home/login";
+$route['login'] = "usuario/login";
 $route['close'] = "usuario/close";
 $route['venta'] = "caja/venta";
 $route['compra'] = "caja/compra";

@@ -1,47 +1,52 @@
-<div class="row">
-    <div class="col-lg-12">
-        <ol class="breadcrumb" style="margin-top: 2%;">
-            <li><a href="<?= base_url() ?>">Inicio</a>
-            </li>
-            <li class="active">Inicio de sesión</li>
-        </ol>
-    </div>
-</div>
+<!DOCTYPE html>
+<html class="bg-black">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delipapas | Iniciar sesiÃ³n</title>
+        <link rel="shortcut icon" href="<?= base_url('resources/images/ico/ico.ico') ?>">
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <link href="<?= base_url() ?>resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>resources/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
-<div class="row" style="margin-top: 6%">
-    <div class="col-md-5 col-md-offset-4">
-        <div class="login-panel panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Inicio de sesión</h3>
-            </div>
-            <div class="panel-body">
-                <?= form_open(base_url() . 'login', $form) ?>
-                <fieldset>
-                    <?php if ($this->session->userdata('error_login_1') && $this->session->userdata('error_login_1')!="") { ?>
-                        <div class="alert alert-danger">
-                            <?= $this->session->userdata('error_login_1') ?>
+    </head>
+    <body class="bg-black">
+
+        <div class="form-box" id="login-box">
+            <div class="header">Iniciar Sesión</div>
+            <form action="<?= base_url('login') ?>" method="post">
+                <div class="body bg-gray">
+                    <?= form_open(base_url() . 'login', $form) ?>
+                    <fieldset>
+                        <?php if ($this->session->userdata('error_login_1') && $this->session->userdata('error_login_1') != "") { ?>
+                            <div class="alert alert-danger">
+                                <?= $this->session->userdata('error_login_1') ?>
+                            </div>
+                            <?php
+                            $this->session->unset_userdata('error_login_1');
+                        }
+                        ?>
+                        <div class="form-group">
+                            <?= form_input($usuario) ?>
                         </div>
-                    <?php 
-                        $this->session->unset_userdata('error_login_1');
-                    } ?>
-                    <div class="form-group">
-                        <?= form_input($usuario) ?>
-                    </div>
-                    <div class="form-group">
-                        <?= form_password($contraseña) ?>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input name="remember" type="checkbox" value="Remember Me">Recordarme
-                        </label>
-                    </div>
-                    <div style="margin-bottom: 10px;">
-                        <a href="#">Olvidé mi contraseña</a>
-                    </div>
+                        <div class="form-group">
+                            <?= form_password($contraseña) ?>
+                        </div>          
+
+                    </fieldset>
+                </div>
+
+
+                <div class="footer">
+                    <!--                    <button type="submit" class="btn bg-olive btn-block">Iniciar</button>  -->
                     <?= form_submit($inicio_sesion) ?>
-                </fieldset>
-                <?= form_close() ?>
-            </div>
+
+                </div>
+            </form>
         </div>
-    </div>
-</div>
+
+        <script src="<?= base_url() ?>resources/js/jquery-2.1.1.min.js"></script>
+        <script src="<?= base_url() ?>resources/js/bootstrap.min.js" type="text/javascript"></script>        
+
+    </body>
+</html>
